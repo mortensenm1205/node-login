@@ -4,7 +4,8 @@ const jwt = require('jsonwebtoken');
 
 const UserSchema = new Schema({
     email: String,
-    password: String
+    password: String,
+    token: String
 });
 
 UserSchema.methods.setPassHash = function(pass) {
@@ -16,12 +17,16 @@ UserSchema.methods.setPassHash = function(pass) {
 }
 
 UserSchema.methods.generateJWT = function() {
-    return jwt({
+    // This just generates a token based
+    // of the users email. 
+    return jwt.sign({
         _id: this._id,
         email: this.email
     }, 'secret');
 }
 
+// We need to asign the new token to our user
+// model. 
 UserSchema.methods.setToken = function() {
     return this.token = this.generateJWT();
 }
