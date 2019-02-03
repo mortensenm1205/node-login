@@ -5,7 +5,7 @@ const cors = require('cors');
 const user = require('./routes/user');
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 
 // Will get cors deined when paried with cra so use cors()
 app.use(bodyParser.json(), cors());
