@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { sendNewUser } from './Register/actions';
 import Register from './Register';
 
 class App extends Component {
@@ -15,18 +17,32 @@ class App extends Component {
 
   submit = e => {
     const { registerData } = this.state;
+    const { sendUser } = this.props;
     e.preventDefault();
     e.target.reset();
-    console.log(registerData);
+    sendUser(registerData);
   }
 
   render() {
     return (
       <div>
         <Register change={this.change} submit={this.submit} />
+        {console.log(this.props.user)}
       </div>
     )
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    user: state.userData
+  }
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    sendUser: user => dispatch(sendNewUser(user))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
