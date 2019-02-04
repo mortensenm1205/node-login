@@ -27,7 +27,7 @@ class App extends Component {
     return (
       <div>
         <Register change={this.change} submit={this.submit} />
-        {console.log(this.props.user)}
+        {console.log(this.props)}
       </div>
     )
   }

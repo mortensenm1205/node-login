@@ -6,10 +6,7 @@ export const userData = (state = {}, action) => {
                 ...action.data
             }
         case "SEND_NEW_USER_ERROR":
-            return {
-                ...state,
-                ...action.data
-            }
+            return { message: action.data }
         default:
             return state;
     }
