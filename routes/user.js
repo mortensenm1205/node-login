@@ -16,13 +16,4 @@ router.post('/create', (req, res) => {
         .then(() => res.status(200).json({ user: finalUser }))
 });
 
-router.post('/login', (req, res)=> {
-    const { headers: { authorization } } = req;
-
-    if (authorization && authorization.split(' ')[0] === 'Token') {
-        console.log(authorization.split(' ')[1]);
-    }
-    console.log(null);
-});
-
 module.exports =  router;
