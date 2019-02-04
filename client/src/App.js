@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
-import './App.css';
+import Register from './Register';
 
 class App extends Component {
   render() {
-    return <p> Edit <code>src/App.js</code> and save to reload. </p>
+    return (
+      <div>
+        <Register />
+      </div>
+    )
   }
 }
 
