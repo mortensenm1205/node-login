@@ -19,6 +19,18 @@ export const sendNewUser = new_user => {
     return dispatch => {
         axios.post('/user/create', { email, password})
             .then(res => dispatch(sendNewUserSuccess(res.data.user)))
-            .catch(e => console.log(e.response))
+            .catch(e => {
+                const { errors } = e.response.data.e;
+                const { email, password } = errors;
+                if(email === undefined) {
+                    dispatch(sendNewUserError(password.message))
+                }
+
+                if(password === undefined) {
+                    dispatch(sendNewUserError(email.message))
+                }
+            })
+            //Email is missing: e.response.data.e.errors.email.path
+            //password is missing: e.response.data.e.errors.password.path
     }
 }
