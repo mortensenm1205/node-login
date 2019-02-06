@@ -20,7 +20,6 @@ class App extends Component {
     const { sendUser } = this.props;
     e.preventDefault();
     e.target.reset();
-    this.setState({ registerData: {} })
     sendUser(registerData);
   }
 
