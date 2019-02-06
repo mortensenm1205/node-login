@@ -6,27 +6,31 @@ import Register from './Register';
 class App extends Component {
 
   state = {
-    registerData: {}
+    registerData: {
+      email: '',
+      password: ''
+    }
   }
 
   change = e => {
     const { registerData } = this.state;
-    let objToSend = { [e.target.name]: e.target.value };
-    this.setState({ registerData: { ...registerData, ...objToSend } })
+    let objToSend = { ...registerData, [e.target.name]: e.target.value };
+    this.setState({ registerData: objToSend })
   }
 
   submit = e => {
     const { registerData } = this.state;
     const { sendUser } = this.props;
     e.preventDefault();
-    e.target.reset();
+    this.setState({ registerData: { email: '', password: '' } })
     sendUser(registerData);
   }
 
   render() {
+    const { registerData } = this.state;
     return (
       <div>
-        <Register change={this.change} submit={this.submit} />
+        <Register change={this.change} submit={this.submit} value={registerData} />
         {console.log(this.props)}
       </div>
     )
