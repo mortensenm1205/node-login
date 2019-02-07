@@ -10,6 +10,7 @@ export const sendNewUserSuccess = data => {
 export const sendNewUserError = data => {
     return {
         type: "SEND_NEW_USER_ERROR",
+        isError: false,
         data
     }
 }
@@ -19,8 +20,6 @@ export const sendNewUser = new_user => {
     return dispatch => {
         axios.post('/user/create', { email, password})
             .then(res => dispatch(sendNewUserSuccess(res.data.user)))
-            .catch(e => console.log(e.response))
-            //Email is missing: e.response.data.e.errors.email.path
-            //password is missing: e.response.data.e.errors.password.path
+            .catch(e => dispatch(sendNewUserError(e.response.data.e)))
     }
 }
