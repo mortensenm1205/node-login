@@ -7,6 +7,7 @@ class App extends Component {
 
   state = {
     registerData: {
+      // Including the specific field names did help with reseting. 
       email: '',
       password: ''
     }
@@ -22,16 +23,18 @@ class App extends Component {
     const { registerData } = this.state;
     const { sendUser } = this.props;
     e.preventDefault();
+    // Need to clear the field values once user hits the submit btn
     this.setState({ registerData: { email: '', password: '' } })
     sendUser(registerData);
   }
 
   render() {
     const { registerData } = this.state;
+    const { user } = this.props;
     return (
       <div>
-        <Register change={this.change} submit={this.submit} value={registerData} />
-        {console.log(this.props)}
+        {/* Since my reducer for user contains success and errors i have to pass in user as an error prop */}
+        <Register change={this.change} submit={this.submit} value={registerData} error={user} />
       </div>
     )
   }

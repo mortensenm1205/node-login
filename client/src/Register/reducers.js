@@ -4,6 +4,8 @@ export const userData = (state = {}, action) => {
             return {
                 ...action.data
             }
+        // I don't have to return state or bring in previous state
+        // because i'm trying to keep these seperate. 
         case "SEND_NEW_USER_ERROR":
             return {
                 isError: !(action.isError),
