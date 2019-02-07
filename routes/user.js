@@ -8,28 +8,29 @@ router.post('/create', (req, res) => {
     const user = new User(body);
 
     // This handles errors for missing password. 
-    // We used a try/catch because of hashing the pw
-    // before saving the doc.
+    // We use an else clause because we still need 
+    // to hash the password. 
+    if(body.password === '') {
+        let e = new Error();
+        e.code = 'password';
+        e.message = 'Password is required';
+        return res.status(400).json({ e })
+    } else {
+        user.setPassHash(body.password)
+        user.setToken();
+    }
 
-    user.setPassHash(body.password)
-    user.setToken();
- 
+    // This handles error for missing email.
+    if (body.email === '') {
+        let e = new Error();
+        e.code = 'email';
+        e.message = 'Email is required';
+        return res.status(400).json({ e })
+    }
 
     return user.save()
         .then(() => res.status(200).json({ user }))
-        // This handles error for missing email.
-        .catch(e => {
-            // res.status(400).json({ e })
-            if (body.password === '' && body.email !== '') {
-                let password = {
-                    message: `Path 'password' is required`,
-                    path: 'password'
-                }
-                e.errors = password;
-                console.log(e.errors);
-            }
-
-        })
+        .catch(e => res.status(400).json({ e }))
 });
 
 module.exports =  router;
