@@ -34,8 +34,22 @@ class App extends Component {
     const { user } = this.props;
     return (
       <div>
-        {/* Since my reducer for user contains success and errors i have to pass in user as an error prop */}
-        <Register change={this.change} submit={this.submit} value={registerData} error={user} />
+        <Switch>
+          <Route path='/register' render={
+            rest => {
+              return ( 
+                <Register 
+                  change={this.change} 
+                  submit={this.submit} 
+                  value={registerData} 
+                  /* Since my reducer for user contains success and errors i have to pass in user as an error prop */
+                  error={user} 
+                  {...rest}
+                />
+              )
+            }
+          }/>
+        </Switch>
       </div>
     )
   }
