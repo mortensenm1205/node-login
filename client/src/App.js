@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { sendNewUser } from './Register/actions';
 import Register from './Register';
+import Login from './Login';
 
 class App extends Component {
 
@@ -46,6 +47,13 @@ class App extends Component {
                   error={user} 
                   {...rest}
                 />
+              )
+            }
+          }/>
+          <Route path='/login' render={
+            rest => {
+              return (
+                <Login {...rest} />
               )
             }
           }/>
