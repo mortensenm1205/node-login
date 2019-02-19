@@ -7,20 +7,17 @@ router.post('/create', (req, res) => {
     const { body } = req;
     const user = new User(body);
 
+    // We are fist testing our erros with conditions and then
+    // returning an error object with a specific message.
     // This handles errors for missing password. 
-    // We use an else clause because we still need 
-    // to hash the password. 
     if(body.password === '') {
         let e = new Error();
         e.code = 'password';
         e.message = 'Password is required';
+        // Keep in mind when wrapping this in an object, you'll be 
+        // forced to call this object out via client side.
         return res.status(400).json({ e })
-    // Our else clause is because we still have to
-    // encyrpt the password before saving.
-    } else {
-        user.setPassHash(body.password)
-        user.setToken();
-    }
+    } 
 
     // This handles error for missing email.
     if (body.email === '') {
@@ -32,8 +29,9 @@ router.post('/create', (req, res) => {
         return res.status(400).json({ e })
     }
 
-    // Luckily, this won't run until both conditions
-    // return false. 
+    // Luckily, none of this will run until both conditions return false. 
+    user.setPassHash(body.password)
+    user.setToken();
     return user.save()
         .then(() => res.status(200).json({ user }))
         .catch(e => res.status(400).json({ e }))
