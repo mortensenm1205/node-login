@@ -16,7 +16,7 @@ export const sendNewUserError = data => {
     }
 }
 
-export const sendNewUser = new_user => {
+export const sendNewUser = (new_user, history) => {
     const { email, password } = new_user;
     return dispatch => {
         axios.post('/user/create', { email, password})
@@ -27,6 +27,7 @@ export const sendNewUser = new_user => {
                 // Saving to localStorage for later use.
                 localStorage.setItem('jwt', 'Bearer ' + user.token)
                 dispatch(sendNewUserSuccess(user));
+                history.push('/');
             })
             .catch(e => dispatch(sendNewUserError(e.response.data.e)))
     }

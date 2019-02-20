@@ -38,11 +38,11 @@ class RegisterContainer extends Component {
 
     submit = e => {
         const { registerData } = this.state;
-        const { sendUser } = this.props;
+        const { sendUser, history } = this.props;
         e.preventDefault();
         // Need to clear the field values once user hits the submit btn
         this.setState({ registerData: { email: '', password: '' } })
-        sendUser(registerData);
+        sendUser(registerData, history);
     }
 
     render() {
@@ -58,6 +58,7 @@ class RegisterContainer extends Component {
                 <div>
                     {errors.data && errors.data.code === 'email' && <div>{errors.data.message}</div>}
                     {errors.data && errors.data.code === 'password' && <div>{errors.data.message}</div>}
+                    {console.log(this.props)}
                 </div>
             </div>
         )
@@ -74,7 +75,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        sendUser: user => dispatch(sendNewUser(user))
+        sendUser: (user, history) => dispatch(sendNewUser(user, history))
     }
 }
 
