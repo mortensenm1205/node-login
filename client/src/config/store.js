@@ -6,10 +6,11 @@ import {
 } from 'redux';
 
 import thunk from 'redux-thunk';
-import { userData } from '../Register/reducers';
+import { userErrorData ,userData } from '../Register/reducers';
 
 const rootReducer = combineReducers({
-    userData
+    user: userData,
+    errors: userErrorData
 })
 
 export default createStore(

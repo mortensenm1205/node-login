@@ -1,9 +1,20 @@
+import { isEmpty } from '../config/isEmpty';
+
 export const userData = (state = {}, action) => {
     switch(action.type) {
         case "SEND_NEW_USER_SUCCESS": 
             return {
-                ...action.data
+                ...state,
+                isAuth: !isEmpty(action.data),
+                data: action.data
             }
+        default:
+            return state;
+    }
+}
+
+export const userErrorData = (state = {}, action) => {
+    switch (action.type) {
         // I don't have to return state or bring in previous state
         // because i'm trying to keep these seperate. 
         case "SEND_NEW_USER_ERROR":
