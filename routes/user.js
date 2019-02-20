@@ -70,7 +70,9 @@ router.post('/login', (req, res) => {
                 e.message = 'User not found'
                 return res.status(400).json({ e })
             }
+            // This static method is just to return a true or false value
             if(!User.comparePassHash(password, user.password)) {
+                // Still using the same format for error handling
                 let e = new Error();
                 e.code = 'wrongPassword';
                 e.message = 'Entered password does not match what we have on file. Please try again.';
