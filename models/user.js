@@ -37,6 +37,10 @@ UserSchema.methods.setToken = function() {
     return this.token = this.generateJWT();
 }
 
+UserSchema.statics.comparePassHash = function(entered_pass, saved_pass) {
+    return bcrypt.compareSync(entered_pass, saved_pass);;
+}
+
 const User = model('User', UserSchema);
 
 module.exports = { User };
