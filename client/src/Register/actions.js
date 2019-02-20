@@ -3,6 +3,7 @@ import axios from 'axios';
 export const sendNewUserSuccess = data => {
     return {
         type: "SEND_NEW_USER_SUCCESS", 
+        isAuth: false,
         data
     }
 }
