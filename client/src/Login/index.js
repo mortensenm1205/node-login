@@ -38,11 +38,11 @@ class LoginContainer extends Component {
 
     submit = e => {
         const { loginData } = this.state;
-        const { login } = this.props;
+        const { login, history } = this.props;
         e.preventDefault();
         // Need to clear the field values once user hits the submit btn
         this.setState({ loginData: { email: '', password: '' } })
-        login(loginData);
+        login(loginData, history);
     }
 
     render() {
@@ -75,7 +75,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        login: user => dispatch(loginUser(user))
+        login: (user, history) => dispatch(loginUser(user, history))
     }
 }
 
