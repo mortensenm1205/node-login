@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { sendNewUser } from './actions';
+import { createNewUser } from './actions';
 
 class RegisterContainer extends Component {
 
@@ -38,11 +38,11 @@ class RegisterContainer extends Component {
 
     submit = e => {
         const { registerData } = this.state;
-        const { sendUser, history } = this.props;
+        const { createUser, history } = this.props;
         e.preventDefault();
         // Need to clear the field values once user hits the submit btn
         this.setState({ registerData: { email: '', password: '' } })
-        sendUser(registerData, history);
+        createUser(registerData, history);
     }
 
     render() {
@@ -58,7 +58,6 @@ class RegisterContainer extends Component {
                 <div>
                     {errors.data && errors.data.code === 'email' && <div>{errors.data.message}</div>}
                     {errors.data && errors.data.code === 'password' && <div>{errors.data.message}</div>}
-                    {console.log(this.props)}
                 </div>
             </div>
         )
@@ -68,14 +67,13 @@ class RegisterContainer extends Component {
 
 const mapStateToProps = state => {
     return {
-        user: state.user,
         errors: state.errors
     }
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        sendUser: (user, history) => dispatch(sendNewUser(user, history))
+        createUser: (user, history) => dispatch(createNewUser(user, history))
     }
 }
 
