@@ -34,7 +34,7 @@ router.post('/create', (req, res) => {
     user.setPassHash(body.password)
     user.setToken();
     return user.save()
-        .then(() => res.status(200).json({ user }))
+        .then(() => res.status(200).json({ token: 'Bearer ' + user.token }))
         .catch(e => res.status(400).json({ e }))
 });
 

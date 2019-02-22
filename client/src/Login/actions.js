@@ -1,8 +1,15 @@
 import axios from 'axios';
-import { userError } from '../config/genActions';
+import { setAuthToken } from '../config/setAuthToken';
+import { userError } from '../User/actions';
 
 export const loginUser = (loginObj, history) => dispatch => {
     axios.post('/user/login', loginObj)
-        .then(res => res.data.token ? history.push('/') : null)
+        .then(res => {
+            const { token } = res.data;
+            // Saving to localStorage for later use.
+            localStorage.setItem('jwt', token);
+            setAuthToken(token);
+            history.push('/');
+        })
         .catch(e => dispatch(userError(e.response.data.e)))
 }
