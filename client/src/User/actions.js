@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 export const userSuccess = data => {
     return {
         type: "USER_SUCCESS",
@@ -12,4 +14,10 @@ export const userError = data => {
         isError: false,
         data
     }
+}
+
+export const userData = () => dispatch => {
+    axios.get('/user/')
+        .then(res => console.log(res))
+        .catch(e => console.error(e))
 }
