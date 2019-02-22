@@ -1,5 +1,4 @@
 # Folder structure for React-Redux:  
-
 Using this [tutorial](https://levelup.gitconnected.com/structure-your-react-redux-project-for-scalability-and-maintainability-618ad82e32b7) to help me maintain my App's (past, present or future) folder structure and always keep scalability in mind. 
 
 Let's always keep in mind this example when structuring client side code: 
@@ -37,3 +36,8 @@ Let's break this down as we go:
 - Any direct folder within `/app` repersents your route. So like `/login`, `/home`, `/about`, etc. would all contain their own folder. 
 -  The `/common` directory repersents any **Repeated Components**. Things like Navbars, Modals, Buttons, etc.
 - You will also place all related redux code in the respected directory. 
+- Your redux code will be under the `/duck` directory. This is following the Redux, Ducks method.
+- All container files shouldn't really return any Components/JSX it's only purpose is to connect the presentational component to redux.
+ - And if you need to reference other components within other places, be sure to reference their containers files. 
+
+### **Ducks**
