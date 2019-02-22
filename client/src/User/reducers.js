@@ -1,4 +1,4 @@
-import { isEmpty } from './isEmpty';
+import { isEmpty } from '../config/isEmpty';
 
 export const userData = (state = {}, action) => {
     switch(action.type) {
