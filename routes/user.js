@@ -1,7 +1,7 @@
 const router = require('express').Router();
+const passport = require('passport');
 const { mongoose } = require('../config/db');
 const { User } = require('../models/user');
-const passport = require('passport');
 
 router.post('/create', (req, res) => {
     // This is nested destructuring for objects. We are selectin { user }.
@@ -83,11 +83,12 @@ router.post('/login', (req, res) => {
         })
 })
 
-router.get('/', passport.authenticate('jwt', { session: false}) , (req, res) => {
+router.get('/', passport.authenticate('jwt', {session: false}), (req, res) => {
     return res.status(200).json({
         id: req.user.id,
         email: req.user.email
-    })
-})
+    });
+});
+
 
 module.exports =  router;
