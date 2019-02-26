@@ -47,3 +47,10 @@ I'll just go over quick points about what this directory should contain, why and
 - `operations.js` is where we will define our logic surrounding those action creators. In other words, this is where we will do our async actions like api calls.
 - And finally our `reducers.js` file. Of course here is where we will place our reducers but something to note is that the reducer should be grouped by one single actions broken down by steps. These steps include starting, successfull, error, ending actions. If one reducer is doing one more than thing than you need to break it up. And example would be, having a user reducer contain form error and user data.... yeah don't do that. 
 - You will also have a `index.js` file in the ducks directory but you will be exporting all the files above such as; operations, reducers, and actions types. Another good thing to note is that in the `index.js` file we don't export our action creators and that is because it's being used and exported within our `opertions.js` file.
+- You can also create a seperate `/ducks` directory but just within `/src` directory. This way you can place other common actions, reducers and operations that are used in another routes of the app. Data like user data, or some other api data that is used in multiple places. 
+- It's also worth noting how you will use these operations in your components. You will first export all operations that you'll need. Then import them into a `index.js` file as mentioned eariler. Then in your component, import it as an object and use the needed methods to attach to the dispatch for redux connect
+- And if it's from a common operation, then just import it as a `commonOperation` object.
+
+### **Personal changes**
+- We'll still keep the `/config` directory for one time files like connections, configures, etc. It's here where we will place the redux store file. 
+- Within the store file, i will import all the reducers needed and use `combineReducers()` to then create a single reducer. It doesn't matter how this is done, just remember to combine them all into one reducer. 
