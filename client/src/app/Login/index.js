@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { loginUser } from './actions';
+import { loginUser } from './ducks/actions';
 
 class LoginContainer extends Component {
 
