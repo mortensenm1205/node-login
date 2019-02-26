@@ -1,6 +1,6 @@
 import axios from 'axios';
-import { setAuthToken } from '../config/setAuthToken';
-import { userError } from '../User/actions'; 
+import { setAuthToken } from '../../config/setAuthToken';
+import { userError } from '../../User/actions'; 
 
 export const createNewUser = (new_user, history) => dispatch => {
     axios.post('/user/create', new_user)

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { userData } from '../User/actions';
-import { setAuthToken } from '../config/setAuthToken';
+import { userData } from '../../User/actions';
+import { setAuthToken } from '../../config/setAuthToken';
 
 if (localStorage.jwt) {
     // We do the same thing in our authentication action call.
