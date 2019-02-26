@@ -41,3 +41,9 @@ Let's break this down as we go:
  - And if you need to reference other components within other places, be sure to reference their containers files. 
 
 ### **Ducks**
+I'll just go over quick points about what this directory should contain, why and some additional points.
+- Each directory will have a `types.js` file. This is your actions types but done in object format to reducer errors amoungst files (this is scalability at it's finest). 
+- There will also be an `actions.js` file. And this will contain our action creators. Just a function that returns an object that contains the action type and payload. 
+- `operations.js` is where we will define our logic surrounding those action creators. In other words, this is where we will do our async actions like api calls.
+- And finally our `reducers.js` file. Of course here is where we will place our reducers but something to note is that the reducer should be grouped by one single actions broken down by steps. These steps include starting, successfull, error, ending actions. If one reducer is doing one more than thing than you need to break it up. And example would be, having a user reducer contain form error and user data.... yeah don't do that. 
+- You will also have a `index.js` file in the ducks directory but you will be exporting all the files above such as; operations, reducers, and actions types. Another good thing to note is that in the `index.js` file we don't export our action creators and that is because it's being used and exported within our `opertions.js` file.
