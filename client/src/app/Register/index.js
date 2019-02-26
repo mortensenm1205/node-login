@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { createNewUser } from './actions';
+import { createNewUser } from './ducks/actions';
 
 class RegisterContainer extends Component {
 
