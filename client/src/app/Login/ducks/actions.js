@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { setAuthToken } from '../../../config/setAuthToken';
-import { userError } from '../../../User/actions';
+import { userError } from '../../ducks/user/actions';
 
 export const loginUser = (loginObj, history) => dispatch => {
     axios.post('/user/login', loginObj)

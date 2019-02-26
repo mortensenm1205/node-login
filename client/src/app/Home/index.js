@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { userData } from '../../User/actions';
+import { userData } from '../ducks/user/actions';
 import { setAuthToken } from '../../config/setAuthToken';
 
 if (localStorage.jwt) {
