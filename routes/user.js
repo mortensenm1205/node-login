@@ -1,5 +1,10 @@
 const router = require('express').Router();
 const passport = require('passport');
+// In passport.js i talk about using the mongoose object
+// to bring in the User model. But here i'm referencing 
+// it from the User model file, and this still seems to work. 
+// Idk if it's because i'm saving an entry? I'll have to switch 
+// it to the mongoose object for testing later.
 const { mongoose } = require('../config/db');
 const { User } = require('../models/user');
 
