@@ -90,8 +90,9 @@ router.post('/login', (req, res) => {
 
 router.get('/', passport.authenticate('jwt', {session: false}), (req, res) => {
     return res.status(200).json({
-        id: req.user.id,
-        email: req.user.email
+        id: req.user._id,
+        email: req.user.email,
+        exp: req.user.exp
     });
 });
 
