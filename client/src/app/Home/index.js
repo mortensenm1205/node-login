@@ -29,7 +29,6 @@ class HomeContainer extends Component {
     const { user, logout, history } = this.props;
       return(
           <div>
-            {console.log(user)}
             {user.isAuth && <button onClick={() => logout(history)}>Logout</button>}
           </div>
       )
