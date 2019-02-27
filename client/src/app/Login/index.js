@@ -52,8 +52,14 @@ class LoginContainer extends Component {
         return (
             <div>
             <form onSubmit={this.submit}>
-                <input type="text" name="email" onChange={this.change} value={email}/>
-                <input type="password" name="password" onChange={this.change} value={password}/>
+                <label>
+                    Email:
+                    <input type="text" name="email" onChange={this.change} value={email}/>
+                </label>
+                <label>
+                    Password:
+                    <input type="password" name="password" onChange={this.change} value={password}/>
+                </label>
                 <button>Login</button>
                 <p>Don't have an account? <Link to='/register'>Register</Link></p>
             </form> 

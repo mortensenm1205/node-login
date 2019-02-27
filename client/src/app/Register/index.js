@@ -52,8 +52,14 @@ class RegisterContainer extends Component {
         return(
             <div>
                 <form onSubmit={this.submit}>
-                    <input type="text" name="email" onChange={this.change} value={email} />
-                    <input type="password" name="password" onChange={this.change} value={password} />
+                    <label>
+                        Enter email:
+                        <input type="text" name="email" onChange={this.change} value={email} />
+                    </label>
+                    <label>
+                        Create password:
+                        <input type="password" name="password" onChange={this.change} value={password} />
+                    </label>
                     <button>Register</button>
                     <p>Already have an account? <Link to='/login'>Login</Link></p>
                 </form>
