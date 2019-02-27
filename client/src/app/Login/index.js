@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { loginUser } from './ducks/actions';
 
@@ -54,6 +55,7 @@ class LoginContainer extends Component {
                 <input type="text" name="email" onChange={this.change} value={email}/>
                 <input type="password" name="password" onChange={this.change} value={password}/>
                 <button>Login</button>
+                <p>Don't have an account? <Link to='/register'>Register</Link></p>
             </form> 
                 <div>
                     {errors.data && errors.data.code === "blankEmail" && <div>{errors.data.message}</div>}
