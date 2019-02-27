@@ -19,5 +19,5 @@ export const userError = data => {
 export const userData = () => dispatch => {
     axios.get('/user/')
         .then(res => dispatch(userSuccess(res.data)))
-        .catch(e => console.error(e))
+        .catch(e => dispatch(userError(e.response.data.e)))
 }
