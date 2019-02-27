@@ -5,19 +5,20 @@ import { logoutUser } from './ducks/actions';
 import { userData } from '../ducks/user/actions';
 import { setAuthToken } from '../../config/setAuthToken';
 
-if (localStorage.jwt) {
-    // We do the same thing in our authentication action call.
-    setAuthToken(localStorage.jwt);
 
-    // This is setting an expiration date on someone
-    // being logged in. Notice that the user still
-    // has to be logged for this to happen. 
-    // const currentTime = Date.now() / 1000;
-    // if (decoded.exp < currentTime) {
-    //     store.dispatch(logoutUser());
-    //     window.location.href = '/login';
-    // }
-}
+// if (localStorage.jwt) {
+//     const { logout, history } = this.props;
+//     const currentTime = Date.now() / 1000;
+//     // We do the same thing in our authentication action call.
+//     setAuthToken(localStorage.jwt);
+
+//     // This is setting an expiration date on someone
+//     // being logged in. Notice that the user still
+//     // has to be logged for this to happen. 
+//     // if (decoded.exp < currentTime) {
+//     //     logout(history);
+//     // }
+// }
 
 class HomeContainer extends Component {
 
