@@ -6,7 +6,7 @@ import {
 } from 'redux';
 
 import thunk from 'redux-thunk';
-import { userErrorData, userData } from '../User/reducers';
+import { userErrorData, userData } from '../app/ducks/user/actions';
 
 const rootReducer = combineReducers({
     user: userData,
