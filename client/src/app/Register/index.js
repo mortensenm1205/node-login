@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { 
-    Register,
     RegisterTitle,
     RegisterForm,
     RegisterLabel,
@@ -60,7 +59,7 @@ class RegisterContainer extends Component {
         const { email, password } = this.state.registerData;
         const { errors } = this.state;
         return(
-            <Register>
+            <section>
                 <RegisterTitle>Create Account</RegisterTitle>
                 <RegisterForm onSubmit={this.submit}>
                     <RegisterLabel>
@@ -79,7 +78,7 @@ class RegisterContainer extends Component {
                     {errors.data && errors.data.code === 'userExists' && <RegisterError>{errors.data.message}</RegisterError>}
                 </RegisterErrorContainer>
                 <RegisterRedirect>Already have an account? <Link to='/login'>Login</Link></RegisterRedirect>
-            </Register>
+            </section>
         )
     }
 
