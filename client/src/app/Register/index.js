@@ -5,6 +5,9 @@ import {
     Register,
     RegisterTitle,
     RegisterForm,
+    RegisterLabel,
+    RegisterInput,
+    RegisterErrorContainer,
     RegisterError,
     RegisterRedirect
  } from './css/';
@@ -60,21 +63,21 @@ class RegisterContainer extends Component {
             <Register>
                 <RegisterTitle>Create Account</RegisterTitle>
                 <RegisterForm onSubmit={this.submit}>
-                    <label>
+                    <RegisterLabel>
                         Enter email:
-                        <input type="text" name="email" onChange={this.change} value={email} />
-                    </label>
-                    <label>
+                        <RegisterInput type="text" name="email" onChange={this.change} value={email} />
+                    </RegisterLabel>
+                    <RegisterLabel>
                         Create password:
-                        <input type="password" name="password" onChange={this.change} value={password} />
-                    </label>
+                        <RegisterInput type="password" name="password" onChange={this.change} value={password} />
+                    </RegisterLabel>
                     <button>Register</button>
                 </RegisterForm>
-                <RegisterError>
-                    {errors.data && errors.data.code === 'email' && <div>{errors.data.message}</div>}
-                    {errors.data && errors.data.code === 'password' && <div>{errors.data.message}</div>}
-                    {errors.data && errors.data.code === 'userExists' && <div>{errors.data.message}</div>}
-                </RegisterError>
+                <RegisterErrorContainer>
+                    {errors.data && errors.data.code === 'email' && <RegisterError>{errors.data.message}</RegisterError>}
+                    {errors.data && errors.data.code === 'password' && <RegisterError>{errors.data.message}</RegisterError>}
+                    {errors.data && errors.data.code === 'userExists' && <RegisterError>{errors.data.message}</RegisterError>}
+                </RegisterErrorContainer>
                 <RegisterRedirect>Already have an account? <Link to='/login'>Login</Link></RegisterRedirect>
             </Register>
         )

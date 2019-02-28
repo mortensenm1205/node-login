@@ -8,18 +8,31 @@ export const Register = styled.div`
 `;
 
 export const RegisterTitle = styled.p`
-    border: 2px solid red;
     grid-column: 1 / -1;
+    font-size: 1.6rem;
 `;
 
 export const RegisterForm = styled.form`
-    border: 2px solid red;
+    grid-column: 1 / 3;
+`;
+
+export const RegisterLabel = styled.label `
+    display: block;
+    margin: 5% 0;
+`;
+
+export const RegisterInput = styled.input`
+    width: 100%;
+`;
+
+export const RegisterErrorContainer = styled.div`
+    grid-column: 1 / -1;
 `;
 
 export const RegisterError = styled.div`
-    border: 2px solid red;
+    padding: 5% 0;
 `;
 
 export const RegisterRedirect = styled.p`
-    border: 2px solid red;
+    grid-column: 1 / -1;
 `;
