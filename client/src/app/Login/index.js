@@ -51,24 +51,19 @@ class LoginContainer extends Component {
         const { email, password } = loginData;
         return (
             <div>
-            <form onSubmit={this.submit}>
-                <label>
-                    Email:
-                    <input type="text" name="email" onChange={this.change} value={email}/>
-                </label>
-                <label>
-                    Password:
-                    <input type="password" name="password" onChange={this.change} value={password}/>
-                </label>
-                <button>Login</button>
-                <p>Don't have an account? <Link to='/register'>Register</Link></p>
-            </form> 
+                <p>Log in</p>
+                <form onSubmit={this.submit}>
+                    <input type="text" name="email" onChange={this.change} value={email} placeholder="Email" />
+                    <input type="password" name="password" onChange={this.change} value={password} placeholder="Password" />
+                    <button>Login</button>
+                </form> 
                 <div>
                     {errors.data && errors.data.code === "blankEmail" && <div>{errors.data.message}</div>}
                     {errors.data && errors.data.code === "blankPassword" && <div>{errors.data.message}</div>}
                     {errors.data && errors.data.code === "noFoundUser" && <div>{errors.data.message}</div>}
                     {errors.data && errors.data.code === "wrongPassword" && <div>{errors.data.message}</div>}
                 </div>
+                <p>Don't have an account? <Link to='/register'>Register</Link></p>
             </div>       
         )
     }
