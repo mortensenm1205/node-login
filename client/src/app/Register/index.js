@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { 
+    Register,
+    RegisterTitle,
+    RegisterForm,
+    RegisterError,
+    RegisterRedirect
+ } from './css/';
 import { createNewUser } from './ducks/actions';
 
 class RegisterContainer extends Component {
@@ -50,9 +57,9 @@ class RegisterContainer extends Component {
         const { email, password } = this.state.registerData;
         const { errors } = this.state;
         return(
-            <div>
-                <p>Create Account</p>
-                <form onSubmit={this.submit}>
+            <Register>
+                <RegisterTitle>Create Account</RegisterTitle>
+                <RegisterForm onSubmit={this.submit}>
                     <label>
                         Enter email:
                         <input type="text" name="email" onChange={this.change} value={email} />
@@ -62,14 +69,14 @@ class RegisterContainer extends Component {
                         <input type="password" name="password" onChange={this.change} value={password} />
                     </label>
                     <button>Register</button>
-                </form>
-                <div>
+                </RegisterForm>
+                <RegisterError>
                     {errors.data && errors.data.code === 'email' && <div>{errors.data.message}</div>}
                     {errors.data && errors.data.code === 'password' && <div>{errors.data.message}</div>}
                     {errors.data && errors.data.code === 'userExists' && <div>{errors.data.message}</div>}
-                </div>
-                <p>Already have an account? <Link to='/login'>Login</Link></p>
-            </div>
+                </RegisterError>
+                <RegisterRedirect>Already have an account? <Link to='/login'>Login</Link></RegisterRedirect>
+            </Register>
         )
     }
 
