@@ -66,6 +66,7 @@ class RegisterContainer extends Component {
                 <div>
                     {errors.data && errors.data.code === 'email' && <div>{errors.data.message}</div>}
                     {errors.data && errors.data.code === 'password' && <div>{errors.data.message}</div>}
+                    {errors.data && errors.data.code === 'userExists' && <div>{errors.data.message}</div>}
                 </div>
                 <p>Already have an account? <Link to='/login'>Login</Link></p>
             </div>

@@ -35,6 +35,14 @@ router.post('/create', (req, res) => {
         return res.status(400).json({ e })
     }
 
+
+    if(user) {
+        let e = new Error();
+        e.code = 'userExists';
+        e.message = 'User already exists, please log in.'
+        return res.status(400).json({ e });
+    }
+
     // Luckily, none of this will run until both conditions return false. 
     user.setPassHash(body.password)
     user.setToken();
