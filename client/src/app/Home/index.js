@@ -18,6 +18,9 @@ class HomeContainer extends Component {
         // This is setting an expiration date on someone
         // being logged in. Notice that the user still
         // has to be logged for this to happen. 
+        // And this is the exp date value i was talking about 
+        // eariler. Don't know if it's best practice to place
+        // here. 
         if (user.exp < currentTime) {
             logout(history);
         }

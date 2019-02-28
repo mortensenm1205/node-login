@@ -35,7 +35,7 @@ router.post('/create', (req, res) => {
         return res.status(400).json({ e })
     }
 
-
+    // This is to handle an already existing user in the db.
     if(user) {
         let e = new Error();
         e.code = 'userExists';
@@ -100,6 +100,9 @@ router.get('/', passport.authenticate('jwt', {session: false}), (req, res) => {
     return res.status(200).json({
         id: req.user._id,
         email: req.user.email,
+        // I'm sending the exp date num value because 
+        // i use it within the home client comp to see 
+        // if a user need sto be logged out or not. 
         exp: req.user.exp
     });
 });
