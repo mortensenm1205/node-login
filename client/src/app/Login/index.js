@@ -55,7 +55,7 @@ class LoginContainer extends Component {
                 <form onSubmit={this.submit}>
                     <input type="text" name="email" onChange={this.change} value={email} placeholder="Email" />
                     <input type="password" name="password" onChange={this.change} value={password} placeholder="Password" />
-                    <button>Login</button>
+                    <button>Log in</button>
                 </form> 
                 <div>
                     {errors.data && errors.data.code === "blankEmail" && <div>{errors.data.message}</div>}

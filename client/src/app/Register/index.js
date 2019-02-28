@@ -51,6 +51,7 @@ class RegisterContainer extends Component {
         const { errors } = this.state;
         return(
             <div>
+                <p>Create Account</p>
                 <form onSubmit={this.submit}>
                     <label>
                         Enter email:
@@ -61,12 +62,12 @@ class RegisterContainer extends Component {
                         <input type="password" name="password" onChange={this.change} value={password} />
                     </label>
                     <button>Register</button>
-                    <p>Already have an account? <Link to='/login'>Login</Link></p>
                 </form>
                 <div>
                     {errors.data && errors.data.code === 'email' && <div>{errors.data.message}</div>}
                     {errors.data && errors.data.code === 'password' && <div>{errors.data.message}</div>}
                 </div>
+                <p>Already have an account? <Link to='/login'>Login</Link></p>
             </div>
         )
     }
