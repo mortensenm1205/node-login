@@ -1,21 +1,21 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
-import { Form } from './css';
+import { App, Form } from './css';
  
 import Home from './Home';
 import Register from './Register';
 import Login from './Login';
 
-class App extends Component {
+class AppContainer extends Component {
   render() {
     return (
-      <div>
+      <App>
         <Switch>
           <Route exact path='/' component={ Home } />
           {/* Using the stateless comp here, noticed i don't have a path prop. This is due to the stateless component containing the routes within. */}
           <Route component={ FormComps } />
         </Switch>
-      </div>
+      </App>
     )
   }
 }
@@ -36,4 +36,4 @@ const FormComps = () => {
   )
 }
 
-export default App;
+export default AppContainer;
