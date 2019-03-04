@@ -1,6 +1,16 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import {
+    Login,
+    LoginTitle,
+    LoginForm,
+    LoginInput,
+    LoginButton,
+    LoginErrorContainer,
+    LoginError,
+    LoginRedirect,
+    LoginLink
+} from './css/';
 import { loginUser } from './ducks/actions';
 
 class LoginContainer extends Component {
@@ -50,21 +60,21 @@ class LoginContainer extends Component {
         const { errors, loginData } = this.state;
         const { email, password } = loginData;
         return (
-            <div>
-                <p>Log in</p>
-                <form onSubmit={this.submit}>
-                    <input type="text" name="email" onChange={this.change} value={email} placeholder="Email" />
-                    <input type="password" name="password" onChange={this.change} value={password} placeholder="Password" />
-                    <button>Log in</button>
-                </form> 
-                <div>
-                    {errors.data && errors.data.code === "blankEmail" && <div>{errors.data.message}</div>}
-                    {errors.data && errors.data.code === "blankPassword" && <div>{errors.data.message}</div>}
-                    {errors.data && errors.data.code === "noFoundUser" && <div>{errors.data.message}</div>}
-                    {errors.data && errors.data.code === "wrongPassword" && <div>{errors.data.message}</div>}
-                </div>
-                <p>Don't have an account? <Link to='/register'>Register</Link></p>
-            </div>       
+            <Login>
+                <LoginTitle>Log in</LoginTitle>
+                <LoginForm onSubmit={this.submit}>
+                    <LoginInput type="text" name="email" onChange={this.change} value={email} placeholder="Email" />
+                    <LoginInput type="password" name="password" onChange={this.change} value={password} placeholder="Password" />
+                    <LoginButton>Log in</LoginButton>
+                </LoginForm> 
+                <LoginErrorContainer>
+                    {errors.data && errors.data.code === "blankEmail" && <LoginError>{errors.data.message}</LoginError>}
+                    {errors.data && errors.data.code === "blankPassword" && <LoginError>{errors.data.message}</LoginError>}
+                    {errors.data && errors.data.code === "noFoundUser" && <LoginError>{errors.data.message}</LoginError>}
+                    {errors.data && errors.data.code === "wrongPassword" && <LoginError>{errors.data.message}</LoginError>}
+                </LoginErrorContainer>
+                <LoginRedirect>Don't have an account? <LoginLink to='/register'>Register</LoginLink></LoginRedirect>
+            </Login>     
         )
     }
 }
