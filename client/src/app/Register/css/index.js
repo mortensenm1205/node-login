@@ -1,12 +1,14 @@
 import styled from 'styled-components';
 
-export const RegisterTitle = styled.p`
+export const Register = styled.section`
     grid-column: 1 / -1;
+`;
+
+export const RegisterTitle = styled.p`
     font-size: 1.6rem;
 `;
 
 export const RegisterForm = styled.form`
-    grid-column: 1 / -1;
 `;
 
 export const RegisterLabel = styled.label `
@@ -22,7 +24,6 @@ export const RegisterInput = styled.input`
 `;
 
 export const RegisterErrorContainer = styled.div`
-    grid-column: 1 / -1;
 `;
 
 export const RegisterError = styled.div`
@@ -30,5 +31,4 @@ export const RegisterError = styled.div`
 `;
 
 export const RegisterRedirect = styled.p`
-    grid-column: 1 / -1;
 `;
