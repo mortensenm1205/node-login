@@ -7,6 +7,7 @@ export const Register = styled.section`
 
 export const RegisterTitle = styled.p`
     font-size: 1.6em;
+    margin: 7% 0 5%;
 `;
 
 export const RegisterForm = styled.form`
@@ -59,6 +60,7 @@ export const RegisterError = styled.div`
 `;
 
 export const RegisterRedirect = styled.p`
+    margin: 5% 0;
 `;
 
 export const RegisterLink = styled(Link)`

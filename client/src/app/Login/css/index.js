@@ -2,11 +2,14 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const Login = styled.section`
-    grid-column: 1 / -1;
+    @media(min-width: 800px) {
+        grid-column: 1 / -1;
+    }
 `;
 
 export const LoginTitle = styled.p`
     font-size: 1.6em;
+    margin: 7% 0 5%;
 `;
 
 export const LoginForm = styled.form`
@@ -54,6 +57,7 @@ export const LoginError = styled.div`
 `;
 
 export const LoginRedirect = styled.p`
+    margin: 5% 0;
 `;
 
 export const LoginLink = styled(Link)`
