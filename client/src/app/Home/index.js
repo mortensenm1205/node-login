@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { logoutUser } from './ducks/actions';
+import { Home, HomeButton, HomeTitle, HomeInfo } from './css/'
 import { userData } from '../ducks/user/actions';
 import { setAuthToken } from '../../config/setAuthToken';
 
@@ -31,9 +32,16 @@ class HomeContainer extends Component {
   render() {
     const { user, logout, history } = this.props;
       return(
-          <div>
-            {user.isAuth && <button onClick={() => logout(history)}>Logout</button>}
-          </div>
+        <div>
+          {user.isAuth && 
+            <Home auth={user.isAuth}>
+              <HomeTitle>Hi!</HomeTitle>
+              <HomeInfo>Email: {user.data.email}</HomeInfo>
+              <HomeButton onClick={() => logout(history)}>Logout</HomeButton>
+            </Home>
+          }
+        </div>
+          
       )
   }
 }
