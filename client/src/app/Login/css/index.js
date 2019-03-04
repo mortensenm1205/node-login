@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export const Login = styled.section`
     @media(min-width: 800px) {
-        grid-column: 1 / -1;
+
     }
 `;
 
