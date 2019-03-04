@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const App = styled.div`
-    background-color: #434857;
 `;
 
 export const Form = styled.div`
