@@ -9,7 +9,6 @@ Using `jwt` strategy to send a JWT back to the user once they've signed up or lo
 Hashing the user's password and compairing the hash within `Passport.js`.
 
 ## **v1**
-___
 - User can create an account with an valid email, and a password more than 6 characters. 
 - User can login with said email and password
 - Will display errors if User doens't required fields. 
@@ -19,7 +18,6 @@ ___
 - Redirects user back to `/login` if JWT isn't present. 
 
 ## **v2**
-___
 - User can reset thier password if forgotten. 
 - User can fetch thier password and have it sent to them via email. 
 - User can create and login with existing Facebook, Twitter, and/or Google accounts. 
