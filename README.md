@@ -1,6 +1,6 @@
 # Node-Login
 
-[**Check out App**](https://mern-node-login.herokuapp.com/login)
+[**Check out App**](https://mern-node-login.herokuapp.com/)
 
 This MERN stack app will demonstate the use of Passport JS, JWT and Bcyrpt.js
 
