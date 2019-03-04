@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { 
     Register,
@@ -7,9 +6,11 @@ import {
     RegisterForm,
     RegisterLabel,
     RegisterInput,
+    RegisterButton,
     RegisterErrorContainer,
     RegisterError,
-    RegisterRedirect
+    RegisterRedirect,
+    RegisterLink
  } from './css/';
 import { createNewUser } from './ducks/actions';
 
@@ -64,21 +65,21 @@ class RegisterContainer extends Component {
                 <RegisterTitle>Create Account</RegisterTitle>
                 <RegisterForm onSubmit={this.submit}>
                     <RegisterLabel>
-                        Enter email:
+                        ENTER EMAIL:
                         <RegisterInput type="text" name="email" onChange={this.change} value={email} />
                     </RegisterLabel>
                     <RegisterLabel>
-                        Create password:
+                        CREATE PASSWORD:
                         <RegisterInput type="password" name="password" onChange={this.change} value={password} />
                     </RegisterLabel>
-                    <button>Register</button>
+                    <RegisterButton>Register</RegisterButton>
                 </RegisterForm>
                 <RegisterErrorContainer>
                     {errors.data && errors.data.code === 'email' && <RegisterError>{errors.data.message}</RegisterError>}
                     {errors.data && errors.data.code === 'password' && <RegisterError>{errors.data.message}</RegisterError>}
                     {errors.data && errors.data.code === 'userExists' && <RegisterError>{errors.data.message}</RegisterError>}
                 </RegisterErrorContainer>
-                <RegisterRedirect>Already have an account? <Link to='/login'>Login</Link></RegisterRedirect>
+                <RegisterRedirect>Already have an account? <RegisterLink to='/login'>Login</RegisterLink></RegisterRedirect>
             </Register>
         )
     }
