@@ -32,15 +32,15 @@ class HomeContainer extends Component {
   render() {
     const { user, logout, history } = this.props;
       return(
-        <div>
+        <Home auth={user.isAuth}>
           {user.isAuth && 
-            <Home auth={user.isAuth}>
+            <div>
               <HomeTitle>Hi!</HomeTitle>
               <HomeInfo>Email: {user.data.email}</HomeInfo>
               <HomeButton onClick={() => logout(history)}>Logout</HomeButton>
-            </Home>
+            </div>
           }
-        </div>
+        </Home>
           
       )
   }

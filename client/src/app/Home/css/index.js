@@ -1,10 +1,15 @@
 import styled from 'styled-components';
 
 export const Home = styled.div`
-    height: 100vh;
     background-color: ${props => props.auth && "#fff;"}
     text-align: center;
-    padding-top: 45%;
+    padding-top: 55.5%;    
+    height: 74.5vh;
+
+    @media(min-width: 800px) {
+        grid-row: 1/-1;
+        padding-top: 10%;
+   }
 `;
 
 export const HomeTitle = styled.h1`
@@ -33,4 +38,10 @@ export const HomeButton = styled.button`
     :focus { 
         outline: 0;
     }
+
+    @media(min-width: 800px) {
+        margin: 0;
+        width: 15%;
+        padding: 1%;
+   }
 `;
