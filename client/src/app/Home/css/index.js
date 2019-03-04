@@ -4,7 +4,7 @@ export const Home = styled.div`
     height: 100vh;
     background-color: ${props => props.auth && "#fff;"}
     text-align: center;
-    padding-top: 10%;
+    padding-top: 45%;
 `;
 
 export const HomeTitle = styled.h1`
@@ -22,7 +22,7 @@ export const HomeButton = styled.button`
     box-shadow: 4px 7px 37px -12px #f8ad1c;
     border: none;
     padding: 4% 11%;
-    margin: 5%
+    margin-top: 50%
     border-radius: 25px;
     font-size: 1.2em;
     font-weight: 700;
